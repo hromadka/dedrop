@@ -11,7 +11,7 @@ from train import Trainer
 
 if __name__ == '__main__':
     name = 'prenet'
-    root_dir = "/home/sb4539/dedrop"
+    root_dir = "/home/thromadka/workspace/dedrop"
     
     epochs, batch_size = 100, 18
 

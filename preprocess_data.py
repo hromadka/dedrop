@@ -73,4 +73,4 @@ def preprocess_train_data(data_path, patch_size, stride):
 
 if __name__ == '__main__':
     file_path = os.path.dirname(os.path.realpath(__file__))
-    preprocess_train_data(os.path.join(file_path, 'train'), 100, 80)
+    preprocess_train_data(os.path.join(file_path, 'train'), 64, 32)

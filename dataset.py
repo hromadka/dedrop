@@ -5,7 +5,10 @@ import torch
 import numpy as np
 import random as rd
 
+from torch.nn.functional import interpolate
 from torch.utils.data import Dataset
+
+TRAIN_PATCH_SIZE = 64
 
 class TestDataset(Dataset):
     def __init__(self, phase):
@@ -86,7 +89,13 @@ class TrainDataset(Dataset):
         rain_data.close()
         clean_data.close()
 
-        return torch.Tensor(rain), torch.Tensor(clean)
+        rain = torch.Tensor(rain).unsqueeze(0)
+        clean = torch.Tensor(clean).unsqueeze(0)
+        if rain.shape[-2] != TRAIN_PATCH_SIZE or rain.shape[-1] != TRAIN_PATCH_SIZE:
+            rain = interpolate(rain, size=(TRAIN_PATCH_SIZE, TRAIN_PATCH_SIZE), mode='bilinear', align_corners=False)
+            clean = interpolate(clean, size=(TRAIN_PATCH_SIZE, TRAIN_PATCH_SIZE), mode='bilinear', align_corners=False)
+
+        return rain.squeeze(0), clean.squeeze(0)
 
 def get_dataset(phase):
     if phase == 'train':

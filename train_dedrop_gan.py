@@ -15,7 +15,7 @@ from dataset import get_dataset
 from models import VAE, PReNet, SAGANDiscriminator
 
 name = 'dedrop_gan'
-root_dir = "/home/sb4539/dedrop"
+root_dir = "/home/thromadka/workspace/dedrop"
 
 epochs, batch_size = 100, 32
 print_frequency, save_checkpoint_frequency = 500, 20
