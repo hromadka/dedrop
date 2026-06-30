@@ -29,8 +29,11 @@ def preprocess_train_data(data_path, patch_size, stride):
     rain_image_list.sort()
     clean_image_list.sort()
 
-    save_clean_path = os.path.join(data_path, 'train_rain.h5')
-    save_rain_path = os.path.join(data_path, 'train_clean.h5')
+# whoopsie!
+#    save_clean_path = os.path.join(data_path, 'train_rain.h5')
+#    save_rain_path = os.path.join(data_path, 'train_clean.h5')
+    save_clean_path = os.path.join(data_path, 'train_clean.h5')
+    save_rain_path = os.path.join(data_path, 'train_rain.h5')
 
     clean_h5f = h5py.File(save_clean_path, 'w')
     rain_h5f = h5py.File(save_rain_path, 'w')
