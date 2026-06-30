@@ -76,11 +76,11 @@ class TrainDataset(Dataset):
         return len(self.keys)
 
     def __getitem__(self, index):
-        rain_path = os.path.join(self.data_dir, 'train_rain.h5')
-        clean_path = os.path.join(self.data_dir, 'train_clean.h5')
-
-        rain_data = h5py.File(rain_path, 'r')
-        clean_data = h5py.File(clean_path, 'r')
+        save_rain_path = os.path.join(self.data_dir, 'train_rain.h5')
+        save_clean_path = os.path.join(self.data_dir, 'train_clean.h5')
+        
+        rain_data = h5py.File(save_rain_path, 'r')
+        clean_data = h5py.File(save_clean_path, 'r')
 
         key = self.keys[index]
         rain = np.array(rain_data[key])
